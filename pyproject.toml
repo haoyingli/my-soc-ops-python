@@ -1,0 +1,11 @@
+[tool.ruff]
+src = ["src"]
+
+[tool.ruff.lint]
+select = [
+    "F",    # pyflakes (includes F841: unused variables)
+    "ANN",  # flake8-annotations (type hints)
+]
+ignore = [
+    "ANN401",  # Dynamically typed expressions (Any) are allowed
+]

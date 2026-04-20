@@ -10,6 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 import os
 from pathlib import Path
+from typing import Any
 
 app = FastAPI(title="Mergington High School API",
               description="API for viewing and signing up for extracurricular activities")
@@ -43,17 +44,17 @@ activities = {
 
 
 @app.get("/")
-def root():
+def root() -> RedirectResponse:
     return RedirectResponse(url="/static/index.html")
 
 
 @app.get("/activities")
-def get_activities():
+def get_activities() -> dict[str, Any]:
     return activities
 
 
 @app.post("/activities/{activity_name}/signup")
-def signup_for_activity(activity_name: str, email: str):
+def signup_for_activity(activity_name: str, email: str) -> dict[str, str]:
     """Sign up a student for an activity"""
     # Validate activity exists
     if activity_name not in activities:
