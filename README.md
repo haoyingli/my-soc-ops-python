@@ -1,16 +1,50 @@
-# Getting Started with GitHub Copilot
+# Mergington High School Activities API
 
-<img src="https://octodex.github.com/images/Professortocat_v2.png" align="right" height="200px" />
+A lightweight FastAPI project that powers a simple **activities signup experience** for students.
 
-Hey haoyingli!
+- Browse available extracurricular activities
+- Sign up students by email
+- Explore both a web UI and OpenAPI docs
 
-Mona here. I'm done preparing your exercise. Hope you enjoy! 💚
+## Why this project?
 
-Remember, it's self-paced so feel free to take a break! ☕️
+This repo is intentionally small and approachable, making it a great sandbox for:
 
-[![](https://img.shields.io/badge/Go%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/haoyingli/my-soc-ops-python/issues/1)
+- learning FastAPI fundamentals
+- practicing API + frontend integration
+- experimenting with secure, incremental code changes
+
+## Quickstart
+
+```bash
+pip install -r requirements.txt
+uvicorn src.app:app --reload
+```
+
+Then open:
+
+- App: http://localhost:8000
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
+
+## API at a glance
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| GET | `/activities` | Return all activities with schedules and participants |
+| POST | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up a student for an activity |
+
+## Project layout
+
+- `src/app.py` – FastAPI routes and in-memory data
+- `src/static/app.js` – frontend API calls and signup flow
+- `src/static/index.html` / `src/static/styles.css` – UI shell and styling
+
+## Notes
+
+- Data is stored **in memory** and resets on restart.
+- This project intentionally avoids a database/ORM to stay focused on API behavior.
 
 ---
 
-&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
+Built for the `haoyingli/my-soc-ops-python` learning project.
